@@ -86,6 +86,7 @@ public class RyeViewController: UIViewController {
                 viewType: Rye.ViewType = .standard(configuration: nil),
                 at position: Rye.Position = .bottom(inset: 16),
                 timeAlive: TimeInterval? = nil) {
+        print("RyeViewController init")
         self.alertType = alertType
         self.viewType = viewType
         self.timeAlive = timeAlive
