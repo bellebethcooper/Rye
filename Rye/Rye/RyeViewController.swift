@@ -130,6 +130,8 @@ public class RyeViewController: UIViewController {
     // MARK: - Display helpers
     
     func showRye(for type: Rye.ViewType) {
+        print("RyeViewController showRye")
+
         func addRyeView(_ ryeView: UIView) {
             self.ryeView = ryeView
             
@@ -178,6 +180,7 @@ public class RyeViewController: UIViewController {
         // a timeAlive of nil will never remove the RyeView
         guard let timeAlive = timeAlive else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + timeAlive + animationDuration) {
+            print("RyeViewController about to dismiss")
             self.dismiss()
         }
     }

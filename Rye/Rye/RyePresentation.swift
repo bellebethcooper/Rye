@@ -12,10 +12,12 @@ import UIKit
 
 public extension RyeViewController {
     func show() {
+        print("RyeViewController show")
         
         switch self.alertType {
         case .toast:
             // create a new UIWindow
+            print("RyeViewController show - about to create a new window")
             var window: UIWindow?
 
             if #available(iOS 13.0, *) {
@@ -35,7 +37,8 @@ public extension RyeViewController {
                 window!.backgroundColor = .clear
                 window!.makeKeyAndVisible()
             }
-            
+
+            print("RyeViewController show - new window: \(window)")
             self.window = window
 
         case .snackBar:
@@ -47,6 +50,8 @@ public extension RyeViewController {
             NSLog("An Rye is already showing. Multiple Ryes can not be presented at the same time")
             return
         }
+
+        print("RyeViewController show - no Ryes already showing, so about to show")
         
         // update Rye state
         isShowing = true
@@ -64,6 +69,7 @@ public extension RyeViewController {
     }
     
     func dismiss(completion: (() -> Void)? = nil) {
+        print("RyeViewController dismiss")
         guard isShowing else {
             NSLog("Can not dismiss a Rye that it is not showing")
             return
